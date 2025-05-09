@@ -1,0 +1,1 @@
+export {AgentsLayoutView} from './View';

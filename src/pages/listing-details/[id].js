@@ -8,6 +8,8 @@ import Head from 'next/head';
 const ListingDetails = ({info, err}) => {
   const {sessionData: store_data} = useGetSession('store_data');
 
+  const metaData = {title: info?.name, description: info?.description, image: slideImages?.[0]};
+
   return (
     <>
       <Head>

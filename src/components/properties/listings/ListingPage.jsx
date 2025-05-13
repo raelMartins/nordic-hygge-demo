@@ -52,6 +52,7 @@ export const ListingPage = ({openAuth, info, err}) => {
       noNavbar={!LoggedinUser || isLoading}
       noPadding
       fullFooter
+      metaData={{title: info?.name, description: info?.description, image: slideImages?.[0]}}
     >
       {info && (
         <>

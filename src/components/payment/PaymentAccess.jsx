@@ -1,5 +1,5 @@
 import useGetSession from '@/utils/hooks/getSession';
-import {cloneElement, isValidElement} from 'react';
+import {cloneElement, isValidElement, useEffect} from 'react';
 
 export const PaymentAccess = ({
   content,
@@ -9,7 +9,7 @@ export const PaymentAccess = ({
   checkFractions = false,
   showAsDisabled = false,
 }) => {
-  const {sessionData: store_data, fetching} = useGetSession('store_data');
+  const {sessionData: store_data, fetching, refetch} = useGetSession('store_data');
   const gateway_disabled = store_data?.gateway_disabled;
   const withdrawal_enabled = store_data?.withdrawal_enabled;
   const wallet_features = store_data?.wallet_features;
@@ -21,6 +21,14 @@ export const PaymentAccess = ({
     (!wallet_features && checkWallet) ||
     (!withdrawal_enabled && checkWithdrawal) ||
     (!fractions_enabled && checkFractions);
+
+  console.log({checkWallet, store_data});
+
+  useEffect(() => {
+    setTimeout(() => {
+      refetch();
+    }, 2000);
+  }, []);
 
   return (
     isValidElement(content) && (

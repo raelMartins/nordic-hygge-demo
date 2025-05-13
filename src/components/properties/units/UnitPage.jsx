@@ -27,7 +27,18 @@ export const UnitPage = ({openAuth, info, unitData, err}) => {
     null;
 
   return (
-    <LayoutView isError={isError} error={err} noNavbar={!LoggedinUser} noPadding fullFooter>
+    <LayoutView
+      isError={isError}
+      error={err}
+      noNavbar={!LoggedinUser}
+      noPadding
+      fullFooter
+      metaData={{
+        title: unitData?.unit_title,
+        description: unitData?.unit_description,
+        image: slideImages?.[0],
+      }}
+    >
       {unitData && (
         <>
           <Box pos={`relative`}>

@@ -4,6 +4,7 @@ import {getSession} from '../sessionmanagers';
 const useGetSession = keyOrKeys => {
   const [sessionData, setSessionData] = useState(null);
   const [fetching, setFetching] = useState(true);
+  const [refetchKey, setRefetchKey] = useState(`${Math.round(Math.random * 1000)}-${Date.now()}`);
 
   useEffect(() => {
     const fetchSessions = async () => {
@@ -25,11 +26,14 @@ const useGetSession = keyOrKeys => {
     };
 
     fetchSessions();
-  }, []);
+  }, [refetchKey]);
 
   return {
     sessionData,
     fetching,
+    refetch: () => {
+      setRefetchKey(`${Math.round(Math.random * 1000)}-${Date.now()}`);
+    },
   };
 };
 

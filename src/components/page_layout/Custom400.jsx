@@ -30,7 +30,7 @@ export const Custom400 = () => {
               animate={{y: '0px'}}
               transition={{duration: 1, delay: 0.3}}
             >
-              Store does not exist
+              Web application does not exist
             </motion.span>
           </Stack>
           <Stack

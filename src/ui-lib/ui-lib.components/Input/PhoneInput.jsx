@@ -31,8 +31,11 @@ export const PhoneInput = ({
   _placeholder = {opacity: 0.8},
   ...rest
 }) => {
+  const all_default_countries = defaultCountries?.map(el => parseCountry(el));
+  const my_default_country = all_default_countries?.find(el => el?.name === MY_COUNTRY?.name);
+
   const {inputValue, handlePhoneValueChange, inputRef, country, setCountry, phone} = usePhoneInput({
-    defaultCountry: MY_COUNTRY,
+    defaultCountry: my_default_country?.iso2,
     value: formik.values.phone,
     disableDialCodeAndPrefix: true,
     disableDialCodePrefill: true,

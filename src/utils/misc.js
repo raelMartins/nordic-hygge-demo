@@ -21,7 +21,13 @@ export const capitalizeString = string => {
   const capitalized_string = string
     ?.split(' ')
     ?.map(el => el?.charAt(0).toUpperCase() + el?.slice(1))
-    ?.join(' ');
+    ?.join(' ')
+    ?.split('-')
+    ?.map(el => el?.charAt(0).toUpperCase() + el?.slice(1))
+    ?.join('-')
+    ?.split('_')
+    ?.map(el => el?.charAt(0).toUpperCase() + el?.slice(1))
+    ?.join('_');
 
   return capitalized_string;
 };

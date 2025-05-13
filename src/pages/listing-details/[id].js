@@ -2,6 +2,7 @@ import {fetchProjectsByIdServerside} from '@/api/listing';
 import {AuthLayout} from '@/components/page_layout/AuthLayout';
 import {ListingPage} from '@/components/properties/listings/ListingPage';
 import useGetSession from '@/utils/hooks/getSession';
+import {capitalizeString} from '@/utils/misc';
 import {getServersideCookie} from '@/utils/sessionmanagers';
 import Head from 'next/head';
 

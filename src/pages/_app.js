@@ -133,12 +133,6 @@ export default function MyApp({Component, pageProps}) {
     <ChakraProvider theme={extendTheme(custom_theme)}>
       <QueryClientProvider client={queryClient}>
         <Head>
-          <title>
-            {capitalizeString(
-              storeName ? `${storeName} - Luxury Properties for Discerning Buyers` : `loading`
-            )}
-          </title>
-          <meta name="description" content={`Property Development Company`} />
           <link rel="icon" href={companyImage ?? ''} />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

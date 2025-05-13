@@ -75,21 +75,35 @@ export const LayoutView = ({
     <>
       <Head>
         {/* Basic */}
-        {metaData?.title && (
-          <title>{capitalizeString(`${metaData?.title} | ${store_data?.store_name}`)}</title>
-        )}
-        {metaData?.description && <meta name="description" content={metaData?.description} />}
+        <title>
+          {capitalizeString(
+            metaData?.title
+              ? `${metaData?.title} | ${store_data?.store_name}`
+              : store_data?.store_name
+              ? `${store_data?.store_name} - Luxury Properties for Discerning Buyers`
+              : `loading`
+          )}
+        </title>
+        <meta
+          name="description"
+          content={metaData?.description || `Property Development Company`}
+        />
 
         {/* Open Graph Meta Tags */}
-        {metaData?.title && (
-          <meta
-            property="og:title"
-            content={capitalizeString(`${metaData?.title} | ${store_data?.store_name}`)}
-          />
-        )}
-        {metaData?.description && (
-          <meta property="og:description" content={metaData?.description} />
-        )}
+        <meta
+          property="og:title"
+          content={capitalizeString(
+            metaData?.title
+              ? `${metaData?.title} | ${store_data?.store_name}`
+              : store_data?.store_name
+              ? `${store_data?.store_name} - Luxury Properties for Discerning Buyers`
+              : `loading`
+          )}
+        />
+        <meta
+          property="og:description"
+          content={metaData?.description || `Property Development Company`}
+        />
         <meta
           property="og:image"
           content={
@@ -102,15 +116,20 @@ export const LayoutView = ({
         <meta property="og:site_name" content={store_data?.store_name} />
 
         {/* Twitter Meta Tags */}
-        {metaData?.title && (
-          <meta
-            name="twitter:title"
-            content={capitalizeString(`${metaData?.title} | ${store_data?.store_name}`)}
-          />
-        )}
-        {metaData?.description && (
-          <meta name="twitter:description" content={metaData?.description} />
-        )}
+        <meta
+          name="twitter:title"
+          content={capitalizeString(
+            metaData?.title
+              ? `${metaData?.title} | ${store_data?.store_name}`
+              : store_data?.store_name
+              ? `${store_data?.store_name} - Luxury Properties for Discerning Buyers`
+              : `loading`
+          )}
+        />
+        <meta
+          name="twitter:description"
+          content={metaData?.description || `Property Development Company`}
+        />
         <meta
           name="twitter:image"
           content={
